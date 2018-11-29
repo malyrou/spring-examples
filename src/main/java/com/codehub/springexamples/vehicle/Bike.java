@@ -7,5 +7,13 @@ public class Bike implements Vehicle {
         System.out.println("Travel by Bike");
     }
 
+    public void initMethod() {
+        System.out.println("Inside Bike's Init Method");
+    }
+
+    public void destroyMethod() {
+        System.out.println("Inside Bike's Destroy Method");
+    }
+
 
 }

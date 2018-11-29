@@ -15,8 +15,10 @@ public class SpringExamplesApplication {
         //load application context
         AnnotationConfigApplicationContext ctx = new AnnotationConfigApplicationContext(VehicleConfig.class);
         //retrieve bean from spring container, scanned from VehicleConfig
-        Vehicle vehicle = ctx.getBean("bikeVehicle", Vehicle.class);
+        Vehicle vehicle = ctx.getBean("carVehicle", Vehicle.class);
+        vehicle.start();
 
+        vehicle = ctx.getBean("bikeVehicle", Vehicle.class);
         vehicle.start();
 
     }
