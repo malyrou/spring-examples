@@ -1,6 +1,6 @@
 package com.codehub.springexamples;
 
-import com.codehub.springexamples.vehicle.Car;
+import com.codehub.springexamples.vehicle.Bike;
 import com.codehub.springexamples.vehicle.Vehicle;
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
@@ -14,7 +14,7 @@ public class SpringExamplesApplication {
         SpringApplication.run(SpringExamplesApplication.class, args);
 
         ApplicationContext context = new ClassPathXmlApplicationContext("application-context.xml");
-        Vehicle vehicle = context.getBean("car", Car.class);
+        Vehicle vehicle = context.getBean("bike", Bike.class);
         vehicle.start();
 
     }
