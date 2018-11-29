@@ -1,14 +1,20 @@
 package com.codehub.springexamples;
 
-import com.codehub.springexamples.vehicle.Car;
+import com.codehub.springexamples.vehicle.Vehicle;
 
 public class Travel {
 
-    Car car = new Car();
+    private Vehicle myVehicle;
+
+    public void setV(Vehicle givenVehicle) {
+        myVehicle = givenVehicle;
+    }
+
 
     public void startJourney() {
-        car.drive();
+        myVehicle.start();
     }
+
 
 
 }
