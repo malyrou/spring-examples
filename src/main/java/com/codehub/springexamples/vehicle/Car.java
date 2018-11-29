@@ -12,7 +12,7 @@ public class Car implements Vehicle {
         this.plateNumber = plateNumber;
     }
 
-
+    @Override
     public void start() {
         System.out.println("Travel by Car");
     }
