@@ -17,7 +17,7 @@
     <!-- property name="Name of the propery in the class, as derived by the setter, Spring will find the correct Setter for it" -->
     <!-- ref="name of the bean as declared in this xml"-->
     <bean name="setterInjectedTravel"
-          class="com.codehub.springexamples.SetterInjectedTravel">
+          class="com.codehub.springexamples.travel.SetterInjectedTravel">
         <property name="vehicle" ref="car"/>
     </bean>
 
@@ -25,14 +25,14 @@
     <!--constructor-arg index="the indexed position of the constructor arguments to be injected"-->
     <!-- ref="name of the bean as declared in this xml"-->
     <bean name="constructorInjectedTravel"
-          class="com.codehub.springexamples.ConstructorInjectedTravel">
+          class="com.codehub.springexamples.travel.ConstructorInjectedTravel">
         <constructor-arg index="0" ref="car"/>
     </bean>
 
 
     <!--Autowire: autowire="byName, byType" It needs a setter-->
     <bean name="autowiredInjectedTravel"
-          class="com.codehub.springexamples.AutowiredInjectedTravel" autowire="byType">
+          class="com.codehub.springexamples.travel.AutowiredInjectedTravel" autowire="byType">
     </bean>
 
 

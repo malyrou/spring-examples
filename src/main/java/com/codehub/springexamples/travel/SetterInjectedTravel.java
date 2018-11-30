@@ -1,4 +1,4 @@
-package com.codehub.springexamples;
+package com.codehub.springexamples.travel;
 
 import com.codehub.springexamples.vehicle.Vehicle;
 

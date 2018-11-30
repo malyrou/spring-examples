@@ -1,7 +1,8 @@
 package com.codehub.springexamples;
 
-import com.codehub.springexamples.vehicle.Car;
-import com.codehub.springexamples.vehicle.Vehicle;
+import com.codehub.springexamples.travel.AutowiredInjectedTravel;
+import com.codehub.springexamples.travel.ConstructorInjectedTravel;
+import com.codehub.springexamples.travel.SetterInjectedTravel;
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
 import org.springframework.context.ApplicationContext;
