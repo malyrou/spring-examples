@@ -4,12 +4,14 @@ import com.codehub.springexamples.vehicle.Bike;
 import com.codehub.springexamples.vehicle.Car;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
+import org.springframework.context.annotation.Primary;
 
 @Configuration
 public class SpringConfig {
 
     //    Bean declaration
     @Bean(name = "bike")
+    @Primary
     public Bike getBike() {
         return new Bike();
     }
@@ -44,4 +46,5 @@ public class SpringConfig {
 //    }
 
 }
+
 
