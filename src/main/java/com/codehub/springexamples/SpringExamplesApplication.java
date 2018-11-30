@@ -14,6 +14,7 @@ public class SpringExamplesApplication {
     public static void main(String[] args) {
         SpringApplication.run(SpringExamplesApplication.class, args);
 
+        //We will just take ask for an instance of each bean from the Application Context.
         ApplicationContext ctx = new ClassPathXmlApplicationContext("application-context.xml");
 
         AutowiredInjectedTravel autowiredInjectedTravel = (AutowiredInjectedTravel) ctx.getBean("autowiredInjectedTravel");
