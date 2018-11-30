@@ -13,9 +13,15 @@ public class SpringExamplesApplication {
     public static void main(String[] args) {
         SpringApplication.run(SpringExamplesApplication.class, args);
 
-        ApplicationContext context = new ClassPathXmlApplicationContext("application-context.xml");
-        Vehicle vehicle = context.getBean("car", Car.class);
-        vehicle.start();
+        ApplicationContext ctx = new ClassPathXmlApplicationContext("application-context.xml");
 
+        AutowiredInjectedTravel autowiredInjectedTravel = (AutowiredInjectedTravel) ctx.getBean("autowiredInjectedTravel");
+        autowiredInjectedTravel.startJourney();
+
+        ConstructorInjectedTravel constructorInjectedTravel = (ConstructorInjectedTravel) ctx.getBean("constructorInjectedTravel");
+        constructorInjectedTravel.startJourney();
+
+        SetterInjectedTravel setterInjectedTravel = (SetterInjectedTravel) ctx.getBean("setterInjectedTravel");
+        setterInjectedTravel.startJourney();
     }
 }
