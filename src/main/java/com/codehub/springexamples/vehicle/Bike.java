@@ -1,9 +1,11 @@
 package com.codehub.springexamples.vehicle;
 
-public class Bike {
+public class Bike implements Vehicle{
 
-    public void ride() {
+    @Override
+    public void start() {
         System.out.println("Travel by Bike");
     }
+
 
 }
