@@ -1,18 +1,12 @@
 package com.codehub.springexamples.travel;
 
 import com.codehub.springexamples.vehicle.Vehicle;
-import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.stereotype.Component;
 
-
-@Component
 public class SetterInjectedTravel {
 
     //This is the dependency
     private Vehicle vehicle;
 
-    //I'm injecting the dependency with a setter
-    @Autowired
     public void setVehicle(Vehicle vehicle) {
         this.vehicle = vehicle;
         System.out.println("Using Setter Injection");
@@ -21,6 +15,7 @@ public class SetterInjectedTravel {
     public void startJourney() {
         vehicle.start();
     }
+
 
 }
 

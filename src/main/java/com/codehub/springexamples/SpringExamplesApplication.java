@@ -6,16 +6,14 @@ import com.codehub.springexamples.travel.SetterInjectedTravel;
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
 import org.springframework.context.ApplicationContext;
-import org.springframework.context.support.ClassPathXmlApplicationContext;
 
+//Now I need this "umbrella" annotation to tell spring to look for @Configuration annotations and other annotations
+//and pick up beans and bean wiring from it
 @SpringBootApplication
 public class SpringExamplesApplication {
 
     public static void main(String[] args) {
-        SpringApplication.run(SpringExamplesApplication.class, args);
-
-        //We will just take ask for an instance of each bean from the Application Context.
-        ApplicationContext ctx = new ClassPathXmlApplicationContext("application-context.xml");
+        ApplicationContext ctx = SpringApplication.run(SpringExamplesApplication.class, args);
 
         AutowiredInjectedTravel autowiredInjectedTravel = (AutowiredInjectedTravel) ctx.getBean("autowiredInjectedTravel");
         autowiredInjectedTravel.startJourney();
@@ -26,4 +24,5 @@ public class SpringExamplesApplication {
         SetterInjectedTravel setterInjectedTravel = (SetterInjectedTravel) ctx.getBean("setterInjectedTravel");
         setterInjectedTravel.startJourney();
     }
+
 }
