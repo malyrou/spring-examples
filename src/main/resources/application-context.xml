@@ -6,7 +6,14 @@
 
     <!--Define your beans here -->
     <bean id="car"
-          class="com.codehub.springexamples.vehicle.Car">
+          class="com.codehub.springexamples.vehicle.Car"
+          scope="singleton">
+    </bean>
+
+    <!--Define your beans here -->
+    <bean id="bike"
+          class="com.codehub.springexamples.vehicle.Bike"
+          scope="prototype">
     </bean>
 
 </beans>
