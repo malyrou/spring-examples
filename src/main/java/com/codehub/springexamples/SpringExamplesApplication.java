@@ -1,40 +1,45 @@
 package com.codehub.springexamples;
 
+import com.codehub.springexamples.config.PropertiesConfig;
 import com.codehub.springexamples.travel.AutowiredInjectedTravel;
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.factory.annotation.Value;
 import org.springframework.boot.CommandLineRunner;
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
+import org.springframework.boot.context.properties.EnableConfigurationProperties;
 import org.springframework.context.ApplicationContext;
+
+import java.util.Map;
 
 //Now I need this "umbrella" annotation to tell spring to look for @Configuration annotations and other annotations
 //and pick up beans and bean wiring from it
 @SpringBootApplication
+//Instead of injecting PropertiesConfig, we could use @EnableConfigurationProperties annotation
+//@EnableConfigurationProperties(PropertiesConfig.class)
 public class SpringExamplesApplication implements CommandLineRunner {
 
-    @Value("${app.name}")
-    private String appName;
-
-    @Value("${app.description}")
-    private String description;
-
-    @Value("${external.property}")
-    private String external;
+    @Autowired
+    private PropertiesConfig propertiesConfig;
 
     public static void main(String[] args) {
-        ApplicationContext ctx = SpringApplication.run(SpringExamplesApplication.class, args);
-
-        AutowiredInjectedTravel travel = ctx.getBean("autowiredInjectedTravel", AutowiredInjectedTravel.class);
-        travel.startJourney();
-
+        SpringApplication.run(SpringExamplesApplication.class, args);
     }
 
     @Override
     public void run(String... args) throws Exception {
-        System.out.println("Application's name is: " + appName);
-        System.out.println(description);
-        //the value of the below property, although existing in default application.properties, will be
-        //overridden by the same named property existing in /config, due to higher priority
-        System.out.println(external);
+        System.out.println("*--------Config Object-------*");
+        System.out.println("Simple Values");
+        System.out.println(propertiesConfig.getHost());
+        System.out.println(propertiesConfig.getPort());
+        System.out.println("Additional Header Values");
+        for (Map.Entry<String, String>  entry :
+                propertiesConfig.getAdditionalHeaders().entrySet()) {
+            System.out.println(entry);
+        }
+
+        System.out.println(propertiesConfig.getCredentials().getUsername());
+        System.out.println(propertiesConfig.getCredentials().getPassword());
+        System.out.println(propertiesConfig.getCredentials().getAuthMethod());
     }
 }
